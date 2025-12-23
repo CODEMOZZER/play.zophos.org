@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZOPHOS</title>
+
+<style>
+:root {
+  --accent: #3b82f6;
+  --bg-dark: #05080f;
+  --text-main: #ffffff;
+  --text-muted: #b3b3b3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  background: rgba(5, 8, 15, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 1000;
+}
+
+nav .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+nav a {
+  color: var(--text-main);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+nav .play-btn {
+  background: var(--accent);
+  padding: 8px 14px;
+  border-radius: 6px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  background:
+    linear-gradient(to bottom, rgba(5,8,15,.7), rgba(5,8,15,.95)),
+    url("galaxy.jpg") center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 8vw, 72px);
+  margin-bottom: 16px;
+}
+
+.hero p {
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.hero .cta {
+  display: inline-block;
+  background: var(--accent);
+  padding: 14px 26px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 120px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+section h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+section p {
+  color: var(--text-muted);
+  max-width: 700px;
+}
+
+/* ===== GAME ===== */
+.game-frame {
+  margin-top: 40px;
+  width: 100%;
+  height: 600px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.game-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: #050914;
+  padding: 60px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.socials img {
+  width: 26px;
+  height: 26px;
+  opacity: 0.75;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.socials img:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+.site-footer p {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.site-footer .legal {
+  margin-top: 24px;
+  font-size: 13px;
+  color: #777;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== SCROLL ANIMATION ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  nav a:not(.play-btn) {
+    display: none;
+  }
+
+  .game-frame {
+    height: 420px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">
+    <img src="logo.png" alt="Zophos Logo" style="height:32px;">
+    ZOPHOS
+  </div>
+  <div>
+    <a href="#game">Game</a>
+    <a href="#updates">Updates</a>
+    <a href="#contact">Contact</a>
+    <a class="play-btn" href="#game">Play Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <h1>ZOPHOS</h1>
+    <p>An original browser-based science fiction game set beyond the Milky Way.</p>
+    <a href="#game" class="cta">Play Now</a>
+  </div>
+</div>
+
+<!-- GAME -->
+<section id="game" class="reveal">
+  <h2>Play the Game</h2>
+  <p>The Zophos experience runs directly in your browser.</p>
+
+  <div class="game-frame">
+    <iframe src="https://example.com"></iframe>
+  </div>
+</section>
+
+<!-- UPDATES -->
+<section id="updates" class="reveal">
+  <h2>Development Updates</h2>
+  <p>
+    We are currently looking for coders to help bring this game to life.
+    If you're interested, please contact us below.
+  </p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+  <h2>Contact</h2>
+  <p>info@zophos.org</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="socials">
+    <a href="https://x.com/zophosorg" target="_blank">
+      <img src="x.png" alt="X">
+    </a>
+    <a href="https://www.instagram.com/zophosorg" target="_blank">
+      <img src="instagram.png" alt="Instagram">
+    </a>
+    <a href="#">
+      <img src="facebook.png" alt="Facebook">
+    </a>
+    <a href="https://www.tiktok.com/@zophosorg" target="_blank">
+      <img src="tiktok.png" alt="TikTok">
+    </a>
+  </div>
+
+  <p>© 2025 Zophos. All rights reserved.</p>
+
+  <p class="legal">
+    All assets, logos, and branding are the property of Zophos.
+    Unauthorized use is prohibited.
+  </p>
+</footer>
+
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+</script>
+
+</body>
+</html>
+
